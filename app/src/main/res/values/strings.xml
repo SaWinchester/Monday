@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Monday</string>
+    <string name="title_activity_main">Monday</string>
 </resources>
