@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cunha.samuel.monday">
 
-    <uses-sdk android:minSdkVersion="19" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -33,7 +31,7 @@
         </activity>
         <activity
             android:name=".Activity.MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label=""/>
     </application>
 
 </manifest>
