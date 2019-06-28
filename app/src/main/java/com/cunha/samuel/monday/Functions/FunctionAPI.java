@@ -1,19 +1,14 @@
 package com.cunha.samuel.monday.Functions;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cunha.samuel.monday.Class.Message;
 import com.cunha.samuel.monday.Class.MessageSend;
 import com.cunha.samuel.monday.RecyclerView.MessageListAdapter;
-import com.cunha.samuel.monday.RequestApi.MondayAPI;
-import com.cunha.samuel.monday.RequestApi.MondayApi;
+import com.cunha.samuel.monday.RequestApi.ControllerApi;
 
 import org.joda.time.DateTime;
-import org.joda.time.JodaTimePermission;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -30,7 +25,7 @@ public class FunctionAPI {
 
     public static void getInit(final MessageListAdapter mMessageAdapter) {
 
-        Call<Message> messageCall = MondayApi.getInit();
+        Call<Message> messageCall = ControllerApi.getInit();
         if(messageCall == null){
             Message message = new Message(0l,"Não estou Passando bem, não irei conversa hoje.",null,"",false,true,true);
             mMessageAdapter.setMessege(message);
@@ -59,7 +54,7 @@ public class FunctionAPI {
         mMessageAdapter.setMessege(new Message(0l,msg,null,time(),false,false,false));
         mRecyclerView.scrollToPosition(mMessageAdapter.getItemCount()-1);
 
-        Call<Message> messageCall = MondayApi.sendMessage(population(msg));
+        Call<Message> messageCall = ControllerApi.sendMessage(population(msg));
         if(messageCall == null){
             Message message = new Message(0l,"Não estou Passando bem, não irei conversa hoje.",null,"",false,true,true);
             mMessageAdapter.setMessege(message);
@@ -114,7 +109,7 @@ public class FunctionAPI {
         int result;
         do {
             result = r.nextInt(H + 1) + L;
-        } while (!sorteados.add(Integer.valueOf(result)));
+        } while (!sorteados.add(result));
         return result;
     }
 }
